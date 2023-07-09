@@ -55,8 +55,6 @@ nav a {
 }
 
 /* COMPONENT STYLES */
-/* Could have made these classes and made just one styling for all these pages.
-But if we want individual control later over each component, we have the ability */
 
 /* ----------------------- HOME COMPONENT ----------------------- */
 #home-container {
@@ -97,42 +95,26 @@ But if we want individual control later over each component, we have the ability
 
 /* ----------------------- GUIDE COMPONENT ----------------------- */
 #guide-container {
-  display: flex;
-  align-items: center;
-  height: 90vh;
+  display: grid;
+  place-items: center;
+  height: 100vh;
 }
 
 #guide-info {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-#guide-title {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 50px;
-  margin-top: 70px;
-}
-
-#guide-words {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  max-width: 900px;
   text-align: center;
 }
 
-ul {
+#guide-container h3 {
   margin: 0;
-  width: 500px;
-  list-style-type: none;
 }
 
 /* ----------------------- ABOUT COMPONENT ----------------------- */
 #about-container {
   display: flex;
-  /* align-items: center; */
   height: 90vh;
 }
 
@@ -263,7 +245,7 @@ ul {
   top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 10;
+  z-index: 100;
   background-color: #121212;
   width: 300px;
   height: 350px;
@@ -342,4 +324,51 @@ ul {
 #continue span {
   margin: 0px 15px;
   font-size: 2.5rem;
+}
+
+/* ----------------------- MOBILE ADJUSTMENTS ----------------------- */
+#sidebar-toggle {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  display: none;
+}
+
+@media (max-width: 768px) {
+  #master {
+    display: flex;
+    justify-content: center;
+    margin-left: 5%;
+    width: 90%;
+  }
+
+  #sidebar-toggle {
+    display: block;
+    z-index: 2;
+  }
+
+  nav {
+    display: none;
+    position: fixed;
+    top: -50px;
+    background-color: #121212;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+  }
+
+  nav.show-nav {
+    display: flex;
+  }
+
+  nav a:nth-child(1) {
+    margin-top: 40%;
+  }
+
+  .menu-icon {
+    width: 25px;
+    height: 3px;
+    margin: 5px 0;
+    background-color: #dadada;
+  }
 }

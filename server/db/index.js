@@ -1,15 +1,11 @@
-//this is the access point for all things database related!
+const db = require("./db");
 
-const db = require('./db');
-
-const User = require('./models/User');
-const Setting = require('./models/Setting');
-const Role = require('./models/Role');
-
-//associations could go here!
+const User = require("./models/User");
+const Setting = require("./models/Setting");
+const Role = require("./models/Role");
 
 Setting.hasMany(Role, {
-  foreignKey: 'settingId',
+  foreignKey: "settingId",
 });
 
 Role.belongsTo(Setting);
